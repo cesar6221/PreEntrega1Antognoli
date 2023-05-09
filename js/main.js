@@ -1,89 +1,117 @@
 
-        let dineroDisponible = 3000;
-        let precioCachorros = 250;
-        let precioPerroAdulto = 400;
-        let precioGatos = 320;
-        let precioAccesorios = 2000;
-        let precioOfertaMes = 180;
-        let kilosComprados = 0;
-        let opcion1 = 2;
-        let opcion2 = 5;
-        let opcion3 = 18;
-        let opcion4 = 24;
-        
+alert(" Bienvenidos!!! a Pet Shop:  Patitas Felices  \n Ingrese a continuación los datos de su mascota ")
 
-        let continuarCompra = true;
+let raza = prompt("Ingrese la raza de su mascota")
+let edad = prompt("Ingrese la edad de su mascota")
+let tamano = prompt("Ingrese el tamaño de su mascota")
 
-        while (continuarCompra) {
+function usuarioCliente(){
 
-        let producto = prompt("Seleccione el producto que desea comprar \n1-Cachorros\n2-Perro Adulto\n3- Gatos\n4-Accesorios\n5-Ofertas del mes");
-        switch (producto) {
-
-        case "1":
-            console.log("Seleccionaste Cachorros");
-
-            let cantidadKilos = prompt("¿Cuántos Kilos de comida desea comprar? \n1- 2 K, \n2- 5 K, \n3- 10 K, \n4- 20 K");
-
-            let opcion1 = parseInt(prompt("Compraste" + opcion1 + "Kg"));
+    
+    let datosUsuarioCliente =("Raza ingresada: " + raza + "\n" + "Edad: " + edad + "\n" + "Tamaño: " + tamano)
+    alert(datosUsuarioCliente)
+    let editarDatos = prompt("Esta seguro de haber ingresado correctamente los datos?: 1-Si , 2-No")
+    while (editarDatos){
+        if(editarDatos == 1){
+            alert("Sigamos con la eleccion del alimento para su mascota")
+            alimentos()
             break;
-                
-        
-        case "2":
-            console.log("Seleccionaste Perro adulto");
-            cantidadKilos = prompt("¿Cuántos kilos de comida desea comprar?");
+        }else{
+            alert("Volvamos a editar los datos de su mascota ")
+            let raza = prompt("Ingrese la raza de su mascota")
+            let edad = prompt("Ingrese la edad de su mascota")
+            let tamano = prompt("Ingrese el tamaño de su mascota")
+            let datosUsuarioCliente =("Raza ingresada: " + raza + "\n" + "Edad: " + edad + "\n" + "Tamaño: " + tamano)
+            alert(datosUsuarioCliente)
+            let editarDatos = prompt("Esta seguro de haber ingresado correctamente los datos?: 1-Si , 2-No")
+            if (editarDatos == 1) {
+                alert("Excelente, prosigamos con la eleccion de alimentos para su mascota")
+                alimentos()
+                break;
+            }else{
+                alert("Vuelva a ingresar correctamente los datos ");
+                break;
+            }
+            
+        }
+    }
+
+}
+
+
+function alimentos(){
+    
+    let royalCanin = alert(" Royal Canin: x 10 kilos, $ 15.000")
+    let proPlan = alert(" Pro-Plan: x 15 kilos, $ 17.000 ")
+    let purina= alert(" Purina: x 20 kilos, $ 22.000 ")
+    let comidaGatos = alert("Excellent gatos: x 5 kilos, $ 8.000") 
+
+    let repetirOpciones = prompt("Desea ver nuestras opciones nuevamente?\n 1 - Si  \n 2 - No")
+    while(repetirOpciones){
+        if(repetirOpciones == 1){
+            alert("Ok!, veamos nuevamente las opciones")
+            let royalCanin = alert(" Royal Canin: x 10 kilos, $ 15.000")
+            let proPlan = alert(" Pro-Plan: x 15 kilos, $ 17.000 ")
+            let purina= alert(" Purina: x 20 kilos, $ 22.000 ")
+            let comidaGatos = alert("Excellent gatos: x 5 kilos, $ 8.000") 
+            let repetirOpcionesS = prompt("Desea continuar?: \n 1 - Si  \n 2 - No")
+            if(repetirOpcionesS == 1){
+                alert("Excelente, continuemos!")
+                break;
+            }else{
+                alert("Lamentamos su decision; regresa pronto!")
+                break;
+            }
+            
+        }else{
+            alert("Genial! prosigamos")
             break;
-        
-        case "3":
-            console.log("Seleccionaste Gatos");
-            cantidadKilos = prompt("¿Cuántos kilos de comida desea comprar?");
+        }
+    }
+
+    let opcionesAlimentos = parseInt(prompt("Qué marca de alimento desea comprar para su mascota? Seleccione una opción: \n 1: Royal Canin \n 2: Pro-Plan \n 3: Purina \n 4: Excellent para Gatos"))
+    switch (opcionesAlimentos){
+        case 1:
+            alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Royal Canin x 10 kilos a $ 15.000 ")
+            break;    
+        case 2:
+            alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Pro-Plan x 15 kilos a $ 17.000 ")
+            break;  
+        case 3:
+            alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Purina x 20 kilos a $ 22.000 ")
+            break; 
+        case 4:
+            alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Excellent para gatos  x 5 kilos a $ 8.000")
             break;
-        
-        case "4":
-            console.log("Seleccionaste Accesorios");
-            cantidadAccesorios = prompt("¿Cuántos accesorios deseas comprar?");
-            break;
-        
-        case "5":
-            console.log("Seleccionaste Ofertas del mes");
-            seleccionOferta = prompt("¿Cuál oferta deseas elegir?");
-            break;
-        
         default:
-            alert("El tipo de producto seleccionado no es válido");
-        }
-        } 
+            alert("La opción ingresada no es correcta \n Por favor vuelva a intentarlo.")
+            let reintentar = prompt("Desea intentar nuevamente\n 1 - Si \n 2 - No")
+            if(reintentar == 1){
+                let opcionesAlimentos = parseInt(prompt("Qué marca de alimento desea comprar para su mascota? Seleccione una opción: \n 1: Royal Canin \n 2: Pro-Plan \n 3: Purina \n 4: Excellent para Gatos"))
+                switch(opcionesAlimentos){
+                    case 1:
+                        alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Royal Canin x 10 kilos a $ 15.000 ")
+                        break;    
+                    case 2:
+                        alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Pro-Plan x 15 kilos a $ 17.000 ")
+                        break;
+                    case 3:
+                        alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Purina x 20 kilos a $ 22.000 ")
+                        break; 
+                    case 4:
+                        alert(raza +" "+ tamano +" "+ edad + " "+ "eligió Excellent para gatos  x 5 kilos a $ 8.000")
+                        break;
+                    default:
+                        alert("La opcion seleccionada no es correcta \n Vuelva a intentarlo!")
+                        break;
+                }       
+            }else{
+                alert("Lamentamos no poder ayudarte con tu compra!!! Vuelve a visitarnos pronto !!!")
+                break;
+            }
+        break;    
+    }  
+}      
 
-        /*let costoTotal = calcularCostoTotal(cantidadKilos, precioCachorros);
-
-        function calcularCostoTotal(cantidadKilos, precioPorKilo) {
-        return cantidadKilos * precioPorKilo;
-        }
-
-        if (costoTotal <= dineroDisponible) {
-        dineroDisponible -= costoTotal;
-        alert("Su compra fué realizada con éxito. Dinero disponible: " + dineroDisponible);
-        } else {
-        alert("No tiene dinero suficiente para realizar esta compra");
-        }
-
-        continuarCompra = confirm("¿Desea realizar otra compra?");
-
-        if (!continuarCompra) {
-        alert("Gracias por su compra");
-        
-        //Esto no va
-        alert("compraste " + 2 +  " kg");
-
-        } else if( kilosComprados===opcion2) {
-        alert("compraste :" + 5  + " Kg");
-
-        } else if( kilosComprados===opcion3) {
-        alert("compraste " + 18 + " Kg");
-
-        } else if( kilosComprados===opcion4) {
-        alert("compraste " + 24  + " Kg");
-        
-        } else {
-        alert("selecciona una opción correcta");
-        }
-        break;*/
+usuarioCliente()
+alert("Gracias por visitar nuestra página")
